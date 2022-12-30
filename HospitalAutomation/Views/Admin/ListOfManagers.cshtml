@@ -1,0 +1,68 @@
+﻿@model HospitalAutomation.Models.VMs.ListOfManagersVM
+
+@{
+    ViewData["Title"] = "ListOfManagers";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>ListOfManagers</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                FirstName
+            </th>
+            <th>
+                LastName
+            </th>
+            <th>
+                EmailAddress
+            </th>
+            <th>
+                Password
+            </th>
+            <th>
+                Status
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Managers)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.FirstName
+                </td>
+                <td>
+                    @item.LastName
+                </td>
+                <td>
+                    @item.EmailAddress
+                </td>
+                <td>
+                    @item.Password
+                </td>
+                <td>
+                    @item.Status
+                </td>
+                <td>
+                    <a class="btn btn-success" asp-action="UpdatingManager" asp-route-id="@item.Id">Update</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" asp-action="DeletingManager" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

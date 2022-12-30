@@ -1,0 +1,66 @@
+﻿@*@model IEnumerable<HospitalAutomation.Models.Abstract.IUser>
+
+@{
+    ViewData["Title"] = "ListOfPersonnels";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>ListOfPersonnels</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               ID
+            </th>
+            <th>
+                FirstName
+            </th>
+            <th>
+                LastName
+            </th>
+            <th>
+               EmailAddress
+            </th>
+            <th>
+                Password
+            </th>
+            <th>
+                Status
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    if (item is Personnel)
+            {
+                <tr>
+                    <td>
+                        @item.Id)
+                    </td>
+                    <td>
+                        @item.FirstName)
+                    </td>
+                    <td>
+                        @item.LastName)
+                    </td>
+                    <td>
+                        @item.EmailAddress)
+                    </td>
+                    <td>
+                        @item.Password)
+                    </td>
+                    <td>
+                        @item.Status)
+                    </td>
+                </tr>
+            }
+       
+}
+    </tbody>
+</table>
+*@
